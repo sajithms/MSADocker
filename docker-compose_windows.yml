@@ -1,0 +1,67 @@
+version: '3'
+services:
+    config-server:
+        container_name: config-server
+        build:
+            context: .
+            dockerfile: Dockerfile-configserver
+        image: dockerhub.secondstep.com/msa/config-server:latest
+        expose:
+            - 4000
+        ports:
+            - 4000:4000
+        networks:
+            - ss-network
+        volumes:
+            - D:\home\MSAWorkspace\spring-config\config-server:/var/lib/config-server
+    eureka-server:
+        container_name: eureka-server
+        build:
+            context: .
+            dockerfile: Dockerfile-eurekaserver
+        image: dockerhub.secondstep.com/msa/eureka-server:latest
+        entrypoint: /opt/bin/eureka.sh
+        expose:
+            - 5000
+        ports:
+            - 5000:5000
+        networks:
+            - ss-network
+        volumes:
+            - D:\home\MSAWorkspace\spring-config\eureka-server:/var/lib/eureka-server
+    oauth-server:
+        container_name: oauth-server
+        build:
+            context: .
+            dockerfile: Dockerfile-oauthserver
+        image: dockerhub.secondstep.com/msa/oauth-server:latest
+        entrypoint: /opt/bin/oauth.sh
+        expose:
+            - 7000
+        ports:
+            - 7000:7000
+        networks:
+            - ss-network
+        volumes:
+            - D:\home\MSAWorkspace\spring-config\oauth-server:/var/lib/oauth-server   
+    customer-service:
+        container_name: customer-service
+        build:
+            context: .
+            dockerfile: Dockerfile-customerservice
+        image: dockerhub.secondstep.com/msa/customer-service:latest
+        entrypoint: /opt/bin/customer.sh
+        expose:
+            - 8000
+        ports:
+            - 8000:8000
+        networks:
+            - ss-network
+        volumes:
+            - D:\home\MSAWorkspace\spring-config\customer-service:/var/lib/customer-service              
+ 
+networks:
+    ss-network:
+        driver: bridge
+
+   

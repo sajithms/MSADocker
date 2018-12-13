@@ -1,0 +1,3 @@
+FROM alpine
+COPY sayhello.sh sayhello.sh
+CMD ["/sayhello.sh"]

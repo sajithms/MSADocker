@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="config-server"/>
+<aop-project name="oauth-server"/>
+<aop-project name="customer-service">
+<aspect-definition advice-class-name="com.netflix.hystrix.contrib.javanica.aop.aspectj.HystrixCommandAspect" advice-method-name="methodsAnnotatedWithHystrixCommand(org.aspectj.lang.ProceedingJoinPoint)" advice-type="AROUND" aspect-end-line-number="-1" aspect-name="hystrixCommandAspect" aspect-start-line-number="-1" factory-id="org.springframework.ide.eclipse.aop.core.annotationAspectDefinitionElementFactory" file="/customer-service/src/main/java/com/zcare/api/customer/CustomerServiceApplication.java" pointcut-expression="hystrixCommandAnnotationPointcut() || hystrixCollapserAnnotationPointcut()" proxy-target-class="true">
+<aop-reference advice-type="AROUND" bean="1:BeansModel|2:customer-service|3:java:com.zcare.api.customer.CustomerServiceApplication|8:loginController:38" bean-file="/customer-service/src/main/java/com/zcare/api/customer/controller/LoginController.java" bean-start-line="38" factory-id="org.springframework.ide.eclipse.aop.core.aopReferenceElementFactory" file="/customer-service/src/main/java/com/zcare/api/customer/CustomerServiceApplication.java" source="=customer-service/D:\/Users\/sajith.sulaiman\/.m2\/repository\/com\/netflix\/hystrix\/hystrix-javanica\/1.5.12\/hystrix-javanica-1.5.12.jar&lt;com.netflix.hystrix.contrib.javanica.aop.aspectj(HystrixCommandAspect.class[HystrixCommandAspect~methodsAnnotatedWithHystrixCommand~Lorg.aspectj.lang.ProceedingJoinPoint;" source-start-line="-1" target="=customer-service/src\/main\/java&lt;com.zcare.api.customer.controller{LoginController.java[LoginController~login~QHttpServletRequest;" target-start-line="64"/>
+</aspect-definition>
+</aop-project>
+<aop-project name="eureka-server"/>
+<aop-project name="spring-admin"/>
+</aop-reference-model>

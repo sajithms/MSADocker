@@ -1,0 +1,56 @@
+step 1
+
+Business Rules for initial eligibility  based on the following
+	New/Existing customer
+	Nationality
+	Income range etc
+
+
+Business rules need to be implemented in ODM
+
+
+Business rules need to be exposed to the outside and inside consumers
+
+
+Product details needs to be fetched based on the eligibility from back ned systems
+
+List of required documents needs to be configured & fetched from  business rules or backend
+
+
+
+Step 2
+Manual & automated interface for  (mobile , wweb etc) to initate  the process after eligibility check
+
+Interface to upload the document in case of automated initation of process.
+
+Notification needs to be generated to back office and customer in case automated process initation
+
+
+
+Step 3
+Fetch the selected product details from the backend system
+For new customer , capture the data from emirtates id.
+
+For existing user  fetch the following details from back end systems
+	1. customer demographic information
+	2. Customer Id details (Emirtates Id, passport etc)
+	3. Customer visa details
+	4. Customer address details 
+	5. Customer finacial detials ( Accounts, cards , loans etc.)
+	6. Customer signature details
+	7. Joint/POA information
+	8. Documents previously uploaded to the DMS
+
+For new user provsion for the information required to create  mini -CIF
+
+New documents needs to be uploaded
+
+Data validation and verification
+
+
+
+Step 4
+
+Fetch customer grading and risk rating information
+
+

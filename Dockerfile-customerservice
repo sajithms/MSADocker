@@ -1,0 +1,10 @@
+FROM openjdk:8-jdk-alpine
+MAINTAINER secondstep
+RUN apk --no-cache add netcat-openbsd
+RUN apk --no-cache add curl
+COPY customer-service/target/customer-service.jar /opt/lib/
+RUN mkdir /var/lib/customer-service
+COPY spring-config/customer-service/customer.sh /opt/bin/customer.sh
+RUN chmod a+x /opt/bin/customer.sh
+VOLUME /var/lib/customer-service
+EXPOSE 8000

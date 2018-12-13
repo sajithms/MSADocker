@@ -1,0 +1,10 @@
+FROM openjdk:8-jdk-alpine
+MAINTAINER secondstep
+RUN apk --no-cache add netcat-openbsd
+RUN apk --no-cache add curl
+COPY oauth-server/target/oauth-server.jar /opt/lib/
+RUN mkdir /var/lib/oauth-server
+COPY spring-config/oauth-server/oauth.sh /opt/bin/oauth.sh
+RUN chmod a+x /opt/bin/oauth.sh
+VOLUME /var/lib/oauth-server
+EXPOSE 7000

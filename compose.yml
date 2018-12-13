@@ -1,0 +1,27 @@
+version: '2.2'
+services:
+    config-server:
+        container_name: config-server
+        build:
+            context: .
+            dockerfile: Dockerfile-configserver
+        image: config-server:latest
+        expose:
+            - 4000
+        ports:
+            - 4000:4000
+        volumes:
+            - D:\home\MSAWorkspace\spring-config\config-server:/var/lib/config-server
+    eureka-server:
+        container_name: eureka-server
+        build:
+            context: .
+            dockerfile: Dockerfile-eurekaserver
+        image: eureka-server:latest
+        expose:
+            - 5000
+        ports:
+            - 5000:5000
+        volumes:
+            - D:\home\MSAWorkspace\spring-config\eureka-server:/var/lib/eureka-server
+   

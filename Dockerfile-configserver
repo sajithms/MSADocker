@@ -1,0 +1,8 @@
+FROM openjdk:8-jdk-alpine
+MAINTAINER secondstep
+COPY config-server/target/config-server.jar /opt/lib/
+RUN mkdir /var/lib/config-server
+ENTRYPOINT ["/usr/bin/java"]
+CMD ["-jar", "/opt/lib/config-server.jar","--spring.config.location=file:/var/lib/config-server/bootstrap.properties"]
+VOLUME /var/lib/config-server
+EXPOSE 4000

@@ -1,0 +1,11 @@
+FROM openjdk:8-jdk-alpine
+MAINTAINER secondstep
+RUN apk --no-cache add netcat-openbsd
+RUN apk --no-cache add curl
+COPY eureka-server/target/eureka-server.jar /opt/lib/
+RUN mkdir /var/lib/eureka-server
+COPY spring-config/eureka-server/eureka.sh /opt/bin/eureka.sh
+RUN chmod a+x /opt/bin/eureka.sh
+VOLUME /var/lib/eureka-server
+EXPOSE 5000
+
